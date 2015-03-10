@@ -1,0 +1,32 @@
+{
+  "name": "oils-plugin-counters",
+  "version": "1.0.0",
+  "description": "Oils js counters plugin",
+  "keywords": [
+    "oils",
+    "plugin",
+    "counters"
+  ],
+  "author": {
+    "name": "Manny Vergel",
+    "email": "manny@mvergel.com",
+    "url": "http://www.mvergel.com/"
+  },
+  "homepage": "http://www.github.com/mannyvergel/oils-plugin-counters",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mannyvergel/oils-plugin-counters.git"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "dependencies": {
+
+  },
+  "devDependencies": {},
+  "bundleDependencies": [],
+  "private": false,
+  "bugs": {
+    "url": "https://github.com/mannyvergel/oils-plugin-counters/issues"
+  }
+}
