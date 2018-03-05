@@ -1,6 +1,6 @@
 {
   "name": "oils-plugin-counters",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "description": "Oils js counters plugin",
   "keywords": [
     "oils",
