@@ -1,6 +1,6 @@
 {
   "name": "oils-plugin-counters",
-  "version": "3.1.5",
+  "version": "4.0.0",
   "description": "Oils js counters plugin",
   "keywords": [
     "oils",
@@ -28,5 +28,8 @@
   "private": false,
   "bugs": {
     "url": "https://github.com/mannyvergel/oils-plugin-counters/issues"
+  },
+  "scripts": {
+    "test": "OILS_IP=127.0.0.1 OILS_PORT=3000 mocha --timeout 5000 test/*.js"
   }
 }
