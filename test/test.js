@@ -42,8 +42,12 @@ describe('app', function() {
     const testManualCounterModel = new Counter({id: 'testManualCounterModel'});
     await testManualCounterModel.save();
 
-    web.counters.increment('testIncrementModel');
-    web.counters.increment('testIncrementModel');
+    await web.counters.increment('testIncrementModel');
+    await web.counters.increment('testIncrementModel');
+
+    await web.counters.increment('testIncrementModel');
+
+    await web.counters.decrement('testIncrementModel');
 
     web.counters.set('testSetModel', 3);
 
