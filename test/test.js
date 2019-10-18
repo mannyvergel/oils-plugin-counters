@@ -36,21 +36,29 @@ describe('app', function() {
       );
   })
 
-  it('should have execute correctly', async function() {
-    const Counter = web.models('Counter');
+  it('should have executed correctly', async () => {
 
-    const testManualCounterModel = new Counter({id: 'testManualCounterModel'});
-    await testManualCounterModel.save();
+    try {
+        const Counter = web.models('Counter');
 
-    await web.counters.increment('testIncrementModel');
-    await web.counters.increment('testIncrementModel');
+        const testManualCounterModel = new Counter({id: 'testManualCounterModel'});
+        await testManualCounterModel.save();
 
-    await web.counters.increment('testIncrementModel');
+        await web.counters.increment('testIncrementModel');
+        await web.counters.increment('testIncrementModel');
 
-    await web.counters.decrement('testIncrementModel');
+        await web.counters.increment('testIncrementModel');
 
-    web.counters.set('testSetModel', 3);
+        await web.counters.decrement('testIncrementModel');
 
+
+        await web.counters.addCount('testIncrementModel', 100);
+
+        await web.counters.set('testSetModel', 3);
+    } catch (ex) {
+      console.error("Error with executing", ex);
+      throw ex;
+    }
     // cannot test properly atm, but it should work
     // web.counters.incrementAndExpire('testIncrementAndExpireModel', 1);
 
@@ -59,9 +67,14 @@ describe('app', function() {
   it('should read values correctly', async function() {
     // const Counter = web.models('Counter');
 
-    assert.strictEqual(1, await web.counters.get('testManualCounterModel'));
-    assert.strictEqual(2, await web.counters.get('testIncrementModel'));
-    assert.strictEqual(3, await web.counters.get('testSetModel'));
+    try {
+      assert.strictEqual(1, await web.counters.get('testManualCounterModel'), "testManualCounterModel incorrect");
+      assert.strictEqual(102, await web.counters.get('testIncrementModel'), "testIncrementModel incorrect");
+      assert.strictEqual(3, await web.counters.get('testSetModel'), "testSetModel incorrect");
+    } catch (ex) {
+      console.error("Assertion error", ex);
+      throw ex;
+    }
     // assert.strictEqual(1, await web.counters.get('testIncrementAndExpireModel'));
 
   });
